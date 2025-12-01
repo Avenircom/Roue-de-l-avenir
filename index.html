@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roulette Avenir Communication</title>
+
+    <!-- 🎨 Feuille de style -->
+    <link rel="stylesheet" href="/monstyle.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 🧠 Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+    <!-- 🔖 Favicon -->
+    <link rel="icon" type="image/png" href="logo_av.webp" />
+  </head>
+  <body class="form-background">
+    <div class="form-center">
+      <section class="avc-form-wrapper" aria-labelledby="avc-form-title">
+        <div class="avc-form-card">
+          <div class="avc-hero">
+            <img
+              src="/logo_av_roulette-1.png"
+              alt="Supporters Avenir Communication - Coupe du Monde 2026"
+              class="avc-hero-image"
+            />
+            <div class="avc-hero-content">
+              <p class="avc-tagline">Jeu concours 100 % supporters</p>
+              <h1 id="avc-form-title">
+                Bienvenue sur le jeu concours Avenir Communication spécial COUPE
+                DU MONDE 2026
+              </h1>
+              <p class="avc-intro">
+                <em
+                  >Tentez de gagner vos accessoires de supporters et découvrez
+                  tout ce qu’Avenir Communication peut faire pour vous.</em
+                >
+              </p>
+            </div>
+          </div>
+
+          <form id="avc-form" novalidate>
+            <div class="hp" aria-hidden="true">
+              <label for="website">Laissez ce champ vide</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label for="prenom">Prénom *</label>
+                <input
+                  type="text"
+                  id="prenom"
+                  name="prenom"
+                  placeholder="Prénom"
+                  required
+                  autocomplete="given-name"
+                />
+                <p
+                  class="error"
+                  id="err-prenom"
+                  role="alert"
+                  aria-live="polite"
+                ></p>
+              </div>
+              <div class="field">
+                <label for="nom">Nom *</label>
+                <input
+                  type="text"
+                  id="nom"
+                  name="nom"
+                  placeholder="Nom"
+                  required
+                  autocomplete="family-name"
+                />
+                <p
+                  class="error"
+                  id="err-nom"
+                  role="alert"
+                  aria-live="polite"
+                ></p>
+              </div>
+              <div class="field">
+                <label for="email">Adresse e-mail *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Adresse e-mail"
+                  required
+                  autocomplete="email"
+                  inputmode="email"
+                />
+                <p
+                  class="error"
+                  id="err-email"
+                  role="alert"
+                  aria-live="polite"
+                ></p>
+              </div>
+              <div class="field">
+                <label for="entreprise">Entreprise *</label>
+                <input
+                  type="text"
+                  id="entreprise"
+                  name="entreprise"
+                  placeholder="Entreprise"
+                  required
+                  autocomplete="organization"
+                />
+                <p
+                  class="error"
+                  id="err-entreprise"
+                  role="alert"
+                  aria-live="polite"
+                ></p>
+              </div>
+            </div>
+
+            <div class="field checkbox">
+              <input
+                type="checkbox"
+                id="newsletter"
+                name="newsletter"
+                required
+              />
+              <label for="newsletter">
+                En cochant cette case et en participant à ce jeu, j’accepte de
+                recevoir les prochaines actualités (mensuelles) par e-mail.
+              </label>
+            </div>
+            <p
+              class="error"
+              id="err-newsletter"
+              role="alert"
+              aria-live="polite"
+            ></p>
+
+            <div class="actions">
+              <button type="submit" class="btn-primary" aria-label="Jouer">
+                JOUER
+              </button>
+              <span class="btn-wheel" aria-hidden="true"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <style>
+      .avc-form-wrapper {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+      .grid .field {
+        grid-column: 1 / -1;
+      }
+      @media (max-width: 700px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+      input[type="text"],
+      input[type="email"] {
+        border: 1px solid #cfd3da;
+        border-radius: 6px;
+        padding: 0.75rem 0.9rem;
+        font-size: 1rem;
+        line-height: 1.4;
+        background: #f3f4f6;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus {
+        outline: none;
+        border-color: #00457a;
+        box-shadow: 0 0 0 3px rgba(0, 69, 122, 0.15);
+      }
+      .checkbox {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .checkbox input {
+        margin-top: 0.25rem;
+      }
+      .btn-primary {
+        background: #00457a;
+        color: #fff;
+        border: 1px solid #00457a;
+        border-radius: 8px;
+        padding: 0.7rem 1.2rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.15s ease;
+      }
+      .btn-primary:hover {
+        transform: translateX(2px);
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+      .btn-wheel {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PGNpcmNsZSBjeD0nMzInIGN5PSczMicgcj0nMzAnIHN0cm9rZT0nIzAwNDU3QScgc3Ryb2tlLXdpZHRoPSc0JyBmaWxsPSdub25lJy8+PGNpcmNsZSBjeD0nMzInIGN5PSczMicgcj0nNScgZmlsbD0nIzAwNDU3QScvPjxwYXRoIGQ9J00zMiAydjEyTTMyIDUwdjEyTTIgMzJoMTJNNTAuNSAzMmgxMk0xNCAxNGw4IDhNNDIgNDJsOCA4TTE0IDUwbDgtOE00MiAyMmw4LThnJyBzdHJva2U9JyMwMDQ1N0EnIHN0cm9rZS13aWR0aD0nNCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJy8+PC9zdmc+");
+      }
+      .btn-primary:hover + .btn-wheel,
+      .actions:hover .btn-wheel {
+        opacity: 1;
+        transform: translateX(0);
+        animation: spin 1.5s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: translateX(0) rotate(0deg);
+        }
+        to {
+          transform: translateX(0) rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btn-wheel {
+          animation: none !important;
+        }
+      }
+      .error {
+        color: #b3261e;
+        font-size: 0.9rem;
+        min-height: 1.1em;
+        margin: 0.2rem 0 0;
+      }
+      .hp {
+        position: absolute;
+        left: -5000px;
+      }
+    </style>
+    <script>
+      /* Nettoyage des données du jeu à chaque retour sur la page formulaire */ (function () {
+        try {
+          sessionStorage.removeItem("avc_email");
+          sessionStorage.removeItem("avc_result");
+          sessionStorage.removeItem("avc_spin_done");
+          document.cookie.split(";").forEach(function (c) {
+            if (c.includes("avc_")) {
+              document.cookie = c
+                .replace(/^ +/, "")
+                .replace(
+                  /=.*/,
+                  "=;expires=" + new Date(0).toUTCString() + ";path=/"
+                );
+            }
+          });
+          console.log("Données du jeu nettoyées (sessionStorage + cookies)");
+        } catch (e) {
+          console.warn("Nettoyage non effectué :", e);
+        }
+      })();
+      /* --- Ton script de formulaire --- */ document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          const form = document.getElementById("avc-form");
+          if (!form) return;
+          const endpointURL = "/save.php";
+          const wheelURL = "/roue.html";
+          const elPrenom = document.getElementById("prenom");
+          const elNom = document.getElementById("nom");
+          const elEmail = document.getElementById("email");
+          const elEntreprise = document.getElementById("entreprise");
+          const elNewsletter = document.getElementById("newsletter");
+          const btnSubmit = form.querySelector('button[type="submit"]');
+          let isSubmitting = false;
+          function decodeEntities(str) {
+            const t = document.createElement("textarea");
+            t.innerHTML = str;
+            return t.value;
+          }
+          function setError(id, msg) {
+            const e = document.getElementById(id);
+            if (e) e.textContent = msg ? decodeEntities(msg) : "";
+          }
+          function isValidEmail(v) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+          }
+          async function onSubmit(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+            isSubmitting = true;
+            [
+              "err-prenom",
+              "err-nom",
+              "err-email",
+              "err-entreprise",
+              "err-newsletter",
+            ].forEach((id) => setError(id));
+            if (document.getElementById("website")?.value) {
+              isSubmitting = false;
+              return;
+            }
+            const d = {
+              prenom: elPrenom?.value.trim() || "",
+              nom: elNom?.value.trim() || "",
+              email: elEmail?.value.trim() || "",
+              entreprise: elEntreprise?.value.trim() || "",
+              newsletter: !!elNewsletter?.checked,
+            };
+            let valid = true;
+            if (!d.prenom) {
+              setError("err-prenom", "Merci d’indiquer votre prénom.");
+              valid = false;
+            }
+            if (!d.nom) {
+              setError("err-nom", "Merci d’indiquer votre nom.");
+              valid = false;
+            }
+            if (!d.email || !isValidEmail(d.email)) {
+              setError(
+                "err-email",
+                "Merci de saisir une adresse e-mail valide."
+              );
+              valid = false;
+            }
+            if (!d.entreprise) {
+              setError("err-entreprise", "Merci d’indiquer votre entreprise.");
+              valid = false;
+            }
+            if (!d.newsletter) {
+              setError(
+                "err-newsletter",
+                "Le consentement est requis pour participer."
+              );
+              valid = false;
+            }
+            if (!valid) {
+              isSubmitting = false;
+              return;
+            }
+            const prevLabel = btnSubmit?.textContent;
+            if (btnSubmit) {
+              btnSubmit.disabled = true;
+              btnSubmit.textContent = "Validation en cours...";
+            }
+            try {
+              const r = await fetch(endpointURL, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-Requested-With": "XMLHttpRequest",
+                },
+                body: JSON.stringify(d),
+                credentials: "same-origin",
+              });
+              if (r.status === 409) {
+                setError(
+                  "err-email",
+                  "Vous avez déjà participé avec cet e-mail. Une seule participation est autorisée."
+                );
+                elEmail?.focus();
+                return;
+              }
+              if (r.status === 422) {
+                setError(
+                  "err-email",
+                  "Adresse e-mail invalide ou champs requis manquants."
+                );
+                return;
+              }
+              if (r.status === 429) {
+                alert("Trop de tentatives. Réessayez plus tard.");
+                return;
+              }
+              if (!r.ok) throw new Error("server_error");
+              try {
+                sessionStorage.setItem("avc_email", d.email);
+              } catch {}
+              const url = new URL(wheelURL, window.location.origin);
+              url.searchParams.set("e", d.email);
+              window.location.assign(url.toString());
+            } catch (err) {
+              console.warn(err);
+              alert("Une erreur est survenue, merci de réessayer plus tard.");
+            } finally {
+              if (btnSubmit) {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = prevLabel || "JOUER";
+              }
+              isSubmitting = false;
+            }
+          }
+          form.addEventListener("submit", onSubmit);
+        }
+      );
+    </script>
+  </body>
+</html>

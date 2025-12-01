@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roulette Avenir Communication</title>
+
+    <!-- 🎨 Feuille de style -->
+    <link rel="stylesheet" href="/monstyle.css" />
+
+    <!-- 🧠 Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+    <!-- 🔖 Favicon -->
+    <link rel="icon" type="image/png" href="logo_av.webp" />
+  </head>
+
+  <body>
+    <!-- 🎊 Canvas pour les confettis -->
+    <canvas id="confetti"></canvas>
+
+    <!-- 🎡 Application Vue -->
+    <div id="app">
+      <div class="wheel__wrapper">
+        <div
+          class="wheel__controller"
+          :class="{ 'is-hidden': isSpinning || hideButton }"
+          @click="turning"
+        >
+          <h6 class="controller__label"></h6>
+        </div>
+
+        <div
+          class="content__wrapper"
+          ref="roulette"
+          @transitionend.self="turningEnd"
+        >
+          <div class="sector__wrapper">
+            <div
+              class="sector"
+              :class="awardIdx === i && isShowResult ? 'is-highlight' : ''"
+              v-for="(p, i) in prizes"
+              :style="`transform: rotate(${0.25 - (1/length)/2 - i*(1/length)}turn) skew(${90 - 360/length}deg)`"
+            ></div>
+          </div>
+
+          <div class="label__wrapper">
+            <div
+              class="label"
+              v-for="(p, i) in prizes"
+              :style="`transform: translateX(-50%) rotate(${-i*(1/length)}turn)`"
+              :class="awardIdx === i && isShowResult ? 'is-highlight' : ''"
+            >
+              <h2 class="text">{{ p.text }}</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="result__wrapper" :class="isShowResult ? 'is-show' : ''">
+          <div class="roulette_wrapper">
+            <img src="./ballon_football.png" />
+            <img src="./Titre_Roulette_avenir.png" />
+          </div>
+
+          <div class="result__inner">
+            <div class="result__text">
+              <h1 class="prefix-award">{{ statusLabel }}</h1>
+              <h1 class="award">{{ result }}</h1>
+            </div>
+          </div>
+
+          <div class="result__inner">
+            <div class="result__text">
+              <p>
+                Rendez-vous sur notre page
+                <a
+                  href="https://www.linkedin.com/company/avenir-communication/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  LinkedIn
+                </a>
+                pour suivre nos actualités et participer à nos prochains jeux
+                concours.
+              </p>
+
+              <!-- 🚀 Bouton de retour -->
+              <button
+                class="btn-return"
+                onclick="window.location.href='http://jeuconcoursavcom.by-avcom.com/'"
+                aria-label="Retour au formulaire"
+              >
+                ⬅️ Retour au formulaire
+              </button>
+            </div>
+          </div>
+
+          <div class="result-bg-dec__wrapper"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🚀 Script principal -->
+    <script src="roue.js"></script>
+  </body>
+</html>
