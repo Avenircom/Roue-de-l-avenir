@@ -83,8 +83,14 @@ Fonctionnement :
 
 🗂️ 3. Architecture du projet
 -----------------------------
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   /project  ├── index.html        # Formulaire  ├── roue.html         # Roue Vue.js  ├── monstyle.css      # Styles  ├── save.php          # Enregistrement participation  ├── status.php        # Statut joueur (déjà joué ?)  ├── spin.php          # Tirage + gestion des lots + mail  └── assets/           # Images, logos, JS complémentaires   `
+/project
+├── index.html        # Formulaire
+├── roue.html         # Roue Vue.js
+├── monstyle.css      # Styles
+├── save.php          # Enregistrement participation
+├── status.php        # Statut joueur (déjà joué ?)
+├── spin.php          # Tirage + gestion des lots + mail
+└── assets/           # Images, logos, JS complémentaires
 
 🧱 4. Back-end – Rôle des scripts
 ---------------------------------
@@ -108,7 +114,13 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 Indique si l’utilisateur a déjà un tirage :
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "already_spun": true,    "final_prize_text": "Echarpe",    "final_win": 1,    "r_value": 12.25  }   `
+{
+  "already_spun": true,
+  "final_prize_text": "Echarpe",
+  "final_win": 1,
+  "r_value": 12.25
+}
+
 
 ### 🎯 spin.php
 
